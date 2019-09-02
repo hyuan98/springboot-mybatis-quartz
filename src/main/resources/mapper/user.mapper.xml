@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="yuanian.mapper.UserMapper">
+   <!--  <resultMap id="userMap" type="yn.demo.bean.User">
+        <id property="userid" column="userid" javaType="java.lang.Integer"/>
+        <result property="username" column="username" javaType="java.lang.String"/>
+        <result property="password" column="password" javaType="java.lang.String"/>
+    </resultMap> -->
+
+		<select id="findAllUser" resultType="User">
+            select * from user ;
+        </select>
+    <select id="findUserBycode" resultType="User">
+            select * from user where usercode =#{usercode};
+        </select>
+    <insert id="insterUser" parameterType="User" >
+  insert into user (usercode, username, department
+    )
+  values (#{usercode,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{department,jdbcType=VARCHAR}
+    )
+</insert>
+</mapper>
